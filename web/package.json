@@ -1,0 +1,23 @@
+{
+  "name": "testjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "debug": "node --nolazy --inspect-brk=9229 ./src/server.js",
+    "test": "./node_modules/.bin/cucumber-js --format json:./features/reports/reports.json --tags \"@tag1\"",
+    "start": "node $NODE_DEBUG_OPTION ./src/server.js",
+    "dev": "nodemon --legacy-watch  ./src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cucumber": "^4.2.1",
+    "express": "^4.16.3",
+    "kafka-node": "^2.6.1"
+  },
+  "devDependencies": {
+    "cucumber-html-reporter": "^4.0.3",
+    "nodemon": "^1.17.4"
+  }
+}

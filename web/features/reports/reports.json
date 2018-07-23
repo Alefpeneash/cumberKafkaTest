@@ -1,0 +1,54 @@
+[
+  {
+    "description": "  Kafka",
+    "keyword": "Feature",
+    "name": "Kafka",
+    "line": 1,
+    "id": "kafka",
+    "tags": [],
+    "uri": "features/kafka.feature",
+    "elements": [
+      {
+        "id": "kafka;fetch-message",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Fetch message",
+        "tags": [
+          {
+            "name": "@tag1",
+            "line": 5
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the producer and consumer",
+            "match": {
+              "location": "features/step_defifnitions/kafka_steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the consumer fetches message \"test1\" \"test1\"",
+            "match": {
+              "location": "features/step_defifnitions/kafka_steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
