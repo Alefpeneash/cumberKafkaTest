@@ -22,43 +22,43 @@ let l =  producer.on('ready', function () {
     });
 });
 
-offset = new Offset(client);
-offset.fetch([{ topic: "topic2", partition: 0, time: -1}], (err, data) => {
-    console.log(data['topic2']['0']);
-});
-
-
-let Consumer = kafka.Consumer;
-let consumer = new Consumer(
-    client,
-    [{topic: 'topic2', offset: _offset, partition: 0}],
-    {autoCommit: false, fromOffset: true}
-);
-
-
-
-consumer.on('message', (message) => {
-    console.log('offset: ' + message.offset + ', value: ' + message.value);
-
-});
-
-consumer.pause();
-
-consumer.fetch();
-
-offset = new kafka.Offset(client);
-// offset.fetch([
-//     { topic: 'topic2', partition: 0, time: Date.now(), maxNum: 2 }
-// ], function (err, data) {
-//     // console.log(data);
-//     // data;
+// offset = new Offset(client);
+// offset.fetch([{ topic: "topic2", partition: 0, time: -1}], (err, data) => {
+//     console.log(data['topic2']['0']);
 // });
 
-offset.fetchLatestOffsets(['topic2'], function (error, offsets) {
-    if (error)
-        return handleError(error);
-    console.log(offsets['topic2'][0]);
-});
+
+// let Consumer = kafka.Consumer;
+// let consumer = new Consumer(
+//     client,
+//     [{topic: 'topic2', offset: _offset, partition: 0}],
+//     {autoCommit: false, fromOffset: true}
+// );
+
+
+
+// consumer.on('message', (message) => {
+//     console.log('offset: ' + message.offset + ', value: ' + message.value);
+
+// });
+
+// consumer.pause();
+
+// consumer.fetch();
+
+// offset = new kafka.Offset(client);
+// // offset.fetch([
+// //     { topic: 'topic2', partition: 0, time: Date.now(), maxNum: 2 }
+// // ], function (err, data) {
+// //     // console.log(data);
+// //     // data;
+// // });
+
+// offset.fetchLatestOffsets(['topic2'], function (error, offsets) {
+//     if (error)
+//         return handleError(error);
+//     console.log(offsets['topic2'][0]);
+// });
 
 app.get('/', (req, res) => {
     // let hostname = process.env.HOSTNAME;

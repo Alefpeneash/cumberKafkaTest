@@ -9,37 +9,29 @@ Given('the producer and consumer', () =>  {
     pc = new ProducerConsumer(); 
 }); 
 
+Then('The producer sends {int} messages {string} and consumer fetches {int} messages {string}',  function(num, message, num2, expected) {
+    let promise = new Promise((resolve, reject) => {
+        for (let index = 0; index <= num; index++) {
+            pc.sendMessage(message);
+            resolve(pc.fetchMessage().then((res) => {
+                return assert.equal(res, expected);
+            }));
+
+        }
+    });
+    return promise;
+});
+
+
+
+
+
+
+
+
 // When('the producer sends message {string}', function (message) {
 //     // return pc.sendMessage(message);
 // });
-
-Then('the consumer fetches message {string} {string}',  function(message, expected) {
-    let check = true; 
-    let a;
-    let promise = new Promise((resolve, reject) => {
-        for (let index = 0; index < 2; index++) {
-            pc.sendMessage(message);
-            pc.fetchMessage().then((res) => {
-                // assert.equal(expected, res);
-            
-                a = Math.floor(Math.random() * 10) % 2;
-                console.log(a + "|");
-                if (a == 1){
-                    check = false;
-                    // break;
-                } 
-                console.log("|" + check);
-            });
-            if(index == 1){
-                resolve(check);                
-            }
-        }
-    });
-    
-    promise.then((c) => {
-        assert(c);
-    });
-});
 
 //callback way 
 // Then('the consumer fetches message {string}', function (expected, callback) {
