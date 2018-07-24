@@ -13,7 +13,7 @@ class KafkaTools{
         this.offset = 0;
     }
 
-    async offsetCounter(cb){
+    async offsetCounter(){
         this.offsets = new kafka.Offset(this.client);
         let promise = await new Promise((resolve, reject) => {
             this.offsets.fetch([

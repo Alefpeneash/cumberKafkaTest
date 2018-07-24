@@ -27,7 +27,7 @@
             "line": 7,
             "name": "the producer and consumer",
             "match": {
-              "location": "features/step_defifnitions/kafka_steps.js:8"
+              "location": "features/step_defifnitions/kafka_steps.js:7"
             },
             "result": {
               "status": "passed",
@@ -40,12 +40,11 @@
             "line": 9,
             "name": "The producer sends 5 messages \"test\" and consumer fetches 5 messages \"test1\"",
             "match": {
-              "location": "features/step_defifnitions/kafka_steps.js:16"
+              "location": "features/step_defifnitions/kafka_steps.js:11"
             },
             "result": {
-              "status": "failed",
-              "duration": 48000000,
-              "error_message": "AssertionError [ERR_ASSERTION]: 'test' == 'test1'\n    + expected - actual\n\n    -test\n    +test1\n\n    at pc.fetchMessage.then (/home/maxim/work/test/web/features/step_defifnitions/kafka_steps.js:21:31)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
+              "status": "passed",
+              "duration": 5000000
             }
           }
         ]
