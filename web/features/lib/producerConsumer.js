@@ -2,8 +2,8 @@ const KafkaTools = require('../lib/kafkaTools.js');
 
 class ProducerConsumer{
 
-    constructor(){
-        this.kafkaTools = new KafkaTools("topic2");
+    constructor(topicName){
+        this.kafkaTools = new KafkaTools(topicName);
         this.offset;
     }
 
@@ -15,51 +15,18 @@ class ProducerConsumer{
         return promise;
     }
 
-    //promise way fetchFunc
-    fetchMessage(){
+    fetchMessage(num){
         let promise = new Promise((resolve, reject) => {
-            this.kafkaTools.consumerOn((message) => {
-                resolve(message.value);
+            let a = [];
+            let i = 0;
+            this.kafkaTools.consumerOn(num, (message) => {
+                a[i] = message.value;
+                i++;
+                resolve(a);
             });
         });
-
         return promise;
-    }
-
-    // callback way fetchFunc
-    // async fetchMessage(cb){
-    //     let promise = await new Promise((resolve, reject) => {
-    //         let arr = [],
-    //         i = 0;
-    //         this.kafkaTools.consumerOn((message) => {
-    //             arr[i] = message.value;
-    //             i++;
-    //             resolve(arr);
-    //             // return arr;
-    //         });
-    //     });
-
-    //     let result  =  promise[promise.length - 1];
-    //     return cb(result);
-    // }
-
-    // async fetchMessage(){
-    //     let promise = await new Promise((resolve, reject) => {
-    //         let arr = [],
-    //         i = 0;
-    //         this.kafkaTools.consumerOn((message) => {
-    //             arr[i] = message.value;
-    //             i++;
-    //             resolve(arr);
-    //             // return arr;
-    //         });
-    //     });
-
-    //     let result  =  promise[promise.length - 1];
-    //     console.log(typeof (result));
-    //     return result;
-    // }
-    
+    }    
 }
 
 module.exports = ProducerConsumer;

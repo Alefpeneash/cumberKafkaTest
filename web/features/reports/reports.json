@@ -25,26 +25,26 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 7,
-            "name": "the producer and consumer",
+            "name": "the producer and consumer at the topic - \"topic2\"",
             "match": {
               "location": "features/step_defifnitions/kafka_steps.js:7"
             },
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 3000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 9,
-            "name": "The producer sends 5 messages \"test\" and consumer fetches 5 messages \"test1\"",
+            "line": 8,
+            "name": "The producer sends 5 messages \"test\" and consumer fetches 5 messages \"test\"",
             "match": {
               "location": "features/step_defifnitions/kafka_steps.js:11"
             },
             "result": {
               "status": "passed",
-              "duration": 5000000
+              "duration": 42000000
             }
           }
         ]
